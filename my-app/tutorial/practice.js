@@ -83,7 +83,7 @@ Component types:
 // => interview Question 
 
 // Q. can we pass a function as props?
-
+// =>  yes ,we can and that is called lifting up state .    
 // video: 14:props in class component
 //=> what are props
 //=> use of props
@@ -91,3 +91,12 @@ Component types:
 //=> update props on button click
 // => interview question
 
+// Q. can we send html into props ?
+// -> yes ,we will have to use this.props.children
+
+// video: 15: Get Input box value
+// Make input field
+// Make function and get value
+// Make button and state 
+// get value on button click 
+// interview question.

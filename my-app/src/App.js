@@ -251,24 +251,338 @@
 
 // react: 13: props with functional componet
 
-import { useState } from "react";
+// import { useState } from "react";
+// import "./App.css";
+
+// import Student from './Student'
+
+// function App() {
+//   const [name,setName] = useState("deshmukh")
+//  console.log(setName);
+//   return (
+//     <div className="App">
+//       <h1>Props in React :)</h1>
+//       <Student name= {name} />
+//       {/* <Student name="raj" name1="patil" email= "deshmukhrajpatil.com" other={{address:'delhi',mobile:"111"}} />
+//       <Student name="rj" name1="pat" email= "deshmukhpatil.com" other={{address:'Mumbai',mobile:"222"}} /> */}
+//       <button onClick={()=>{setName("somesh")}}>Update Name</button>
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// react : 14: props with class component
+
+// import { Component } from 'react';
+// import './App.css'
+// import Student1 from './Student1'
+
+// class App extends Component{
+//   constructor(){
+//     super();
+//     this.state={name: "deshmukh"}
+//   }
+
+//   apple(){
+//     this.setState= ({name:"Somesh"})
+//   }
+
+//   render(){
+//     return (
+//       <div className="App">
+//       <h1>Props in class component </h1>
+//       <Student1 name={this.state.name} emailId="deshmukhsomesh777@gmail.com"/>
+//       {/* <Student1 name="peter" emailId="rajpatilpeter@gmail.com"/> */}
+//       {/* <button onClick={()=>this.setState({name:"Somesh"})}>click me</button>this code is working */}
+//       {/* <button onClick={()=>{this.apple()}}>click me</button>  this code is not working*/}
+//     </div>
+
+//     )
+//   }
+
+// }
+
+// export default App;
+
+// video : 15 : Get input box value
+
+// import './App.css'
+// import React , {useState} from 'react';
+// function App(){
+
+//   const [data,setData] = useState(null)
+//   const [print,setPrint] = useState(false)
+
+//   function getData(val){
+// console.warn(val.target.value);
+// setData (val.target.value)
+// setPrint(false);
+//   }
+
+//   return(
+//     <div className='App'>
+//       {
+//         print?
+//         <h1>{data}</h1>
+//         :null
+//       }
+//          {/* <h3> {data}</h3> */}
+//       {/* <h1>
+//         Get input box value
+//       </h1> */}
+
+//       <input type='text' onChange={getData}/>
+//    <button onClick={()=>setPrint(true)}>Print Data</button>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+// import Navbar from './Navbar'
+
+// function App(){
+//  return(
+//   <div>
+//     {/* <Navbar/> */}
+//   </div>
+//  )
+// }
+
+// export default App;
+
+// video 15 notes making :
+
+// import { useState } from "react";
+// import "./App.css";
+
+// function App() {
+//   const [data, setData] = useState(null);
+//   const [print, setPrint] = useState(false);
+//   function getData(val) {
+//     console.warn(val.target.value);
+//     setData(val.target.value);
+//     setPrint(false);
+//   }
+//   // console.log(print);
+
+//   return (
+//     <div className="App">
+//       {/* <h1>{data}</h1> */}
+//       {print ? <h2>{data}</h2> : null}
+
+//       <input type="text" onChange={getData} />
+//       <button onClick={() => setPrint(true)}>Print Data</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// Q. can we send html inside the props?
+/// yes , this.props.children for class component
+// for functional component: this.children
+
+// Q. How we got input field data , likewise can we also get the check box and radio button values?
+
+// video  : 16: Hide and Show Element
+// Make a div or any other element
+// make state for hiding and show element
+// make button
+// update state on button click
+// interview question
+
+/// code using 2 buttons :
+// import "./App.css";
+// import React from "react";
+// function App() {
+//   const [status, setStatus] = React.useState(false);
+
+//   return (
+//     <div className="App">
+//       {status ? <h1>hello</h1> : null}
+
+//       <button onClick={() => setStatus(false)}>Hide</button>
+//       <button onClick={() => setStatus(true)}>Show</button>
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// code using single button=> my way
+
+// import "./App.css";
+// import React from "react";
+// function App() {
+//   const [status, setStatus] = React.useState(false);
+
+// function showorhide(){
+//   if(status=== false){
+//     setStatus(true);
+
+//   }else{
+//     setStatus(false)
+
+//   }
+// }
+
+//   return (
+//   <div className="App">
+//     {
+//       status?
+//       <h1>hello friend!</h1>
+//       :null
+//     }
+//       <button onClick={showorhide}>Click</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+/// sirs method to toggle
+// import "./App.css";
+// import React from "react";
+// function App() {
+//   const [status, setStatus] = React.useState(false);
+
+//   return (
+//     <div className="App">
+//       {status ? <h1>hello</h1> : null}
+
+//       {/* <button onClick={() => setStatus(false)}>Hide</button>
+//       <button onClick={() => setStatus(true)}>Show</button> */}
+//       <button onClick={()=>setStatus(!status)}>Click</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// Q. do we use same method in the sense the procedure to hide and show ?
+// or do we use css or some method to do it , as it affects the speed of rendering.
+
+// video : 17: Handle Form | checkbox | input field | select
+// Make HTML form
+// Add some field
+// Use state for field data
+// Submit and control form
+// intrview Question
+
+// import './App.js';
+// function App(){
+//   return(
+//     <div className='App'>
+//       <h1>Handle Form in React</h1>
+//         <form>
+
+//         </form>
+
+//     </div>
+//   )
+// }
+
+// export default App;
+
+// import './App.js';
+// import Navbar from './Navbar.js'
+// function App(){
+//   return(
+//     <div className='App'>
+//      <Navbar />
+//     </div>
+//   )
+// }
+
+// export default App;
+
+// video : 17: Basic Form code:
+// import "./App.css";
+// import { useState } from "react";
+
+// function App() {
+//   const [name, setName] = useState("");
+//   const [tnc, setTnc] = useState(false);
+//   const [interest, setInerest] = useState("");
+//   function getForm(e) {
+//     // console.log(e.cancelable);
+//     console.warn(name, tnc, interest);
+//     e.preventDefault();
+//   }
+
+//   return (
+//     <div className="App">
+//       <h1>Handle form in react</h1>
+
+//       <form onSubmit={getForm}>
+//         <input
+//           type="text"
+//           placeholder="Enter your name"
+//           onChange={(e) => setName(e.target.value)}
+//         ></input>
+//         <br />
+//         <br />
+//         <select onChange={(e) => setInerest(e.target.value)}>
+//           <option>Select Option</option>
+//           <option>Marvel</option>
+//           <option>DC</option>
+//           <option>Hollywood</option>
+//           <option>Bollywood</option>
+//         </select>
+//         <br />
+//         <br />
+//         <input type="checkbox" onChange={(e) => setTnc(e.target.checked)} />
+//         <span>Accept Terms and Conditions</span>
+//         <br /> <br />
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// q. how can we disable a field , on a button click or without a button click.
+
+// video: 18: Conditional rendering | if Condition
+// Make Component
+// Use State
+// Not Recommended Way for condition
+// Corrent Way condition
+// interview Question
+
+//  import "./App.css"
+// import Profile from "./Profile";
+//  function App(){
+//   return(
+// <div className="App">
+
+// <Profile/>
+// </div>
+//   )
+//  }
+
+//  export default App;
+
+// video: 19: Basic Form validation
+// => Make Component
+// => Make HTML Form
+// => Define States
+// => Apply Validation
+// => Interview Question
+
 import "./App.css";
-
-import Student from './Student'
-
+import Login from './Login'
 function App() {
-  const [name,setName] = useState("deshmukh")
- 
   return (
     <div className="App">
-      <h1>Props in React :)</h1>
-      <Student name= {name} />
-      {/* <Student name="raj" name1="patil" email= "deshmukhrajpatil.com" other={{address:'delhi',mobile:"111"}} />
-      <Student name="rj" name1="pat" email= "deshmukhpatil.com" other={{address:'Mumbai',mobile:"222"}} /> */}
-      <button onClick={()=>{setName("somesh")}}>Update Name</button>
-      
+      <h1> Hi its working</h1>
+      <Login />
     </div>
   );
 }
-
 export default App;
