@@ -575,14 +575,43 @@
 // => Apply Validation
 // => Interview Question
 
+// import "./App.css";
+// import Login from './Login'
+// function App() {
+//   return (
+//     <div className="App">
+
+//       <Login />
+//     </div>
+//   );
+// }
+// export default App;
+
+// 20 : Pass Function as Props
+
 import "./App.css";
-import Login from './Login'
+import User4 from "./User4";
+import Members from "./Members";
 function App() {
+  function getData() {
+    alert("hello from app");
+  }
+
   return (
     <div className="App">
-      <h1> Hi its working</h1>
-      <Login />
+      <h1>Pass function as Props</h1>
+      <User4 data={getData}/>
+      <User4 data={getData}/>
+      <User4 data={getData}/>
+      <User4 data={getData}/>
+      <div style={{float:'right'}}>
+      <Members data= {getData}/>
+      </div>
+      
     </div>
   );
 }
+
 export default App;
+
+// Q. can we carete super componet i.e. compoent within componet.
