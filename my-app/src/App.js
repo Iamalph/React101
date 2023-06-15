@@ -249,7 +249,7 @@
 // }
 // export default App;
 
-// react: 13: props with functional componet
+// react: 13: props with functional component
 
 // import { useState } from "react";
 // import "./App.css";
@@ -589,29 +589,520 @@
 
 // 20 : Pass Function as Props
 
-import "./App.css";
-import User4 from "./User4";
-import Members from "./Members";
-function App() {
-  function getData() {
-    alert("hello from app");
-  }
+// import "./App.css";
+// import User4 from "./User4";
+// import Members from "./Members";
+// function App() {
+//   function getData() {
+//     alert("hello from app");
+//   }
 
+//   return (
+//     <div className="App">
+//       <h1>Pass function as Props</h1>
+//       <User4 data={getData}/>
+//       <User4 data={getData}/>
+//       <User4 data={getData}/>
+//       <User4 data={getData}/>
+//       <div style={{float:'right'}}>
+//       <Members data= {getData}/>
+//       </div>
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// Q. can we carete super componet i.e. compoent within componet.
+
+// video:20: Pass Functions as Props
+
+// import './App.css';
+// import User4  from './User4';
+
+// function App(){
+//   function getData(){
+// alert("hello from app")
+//   }
+//   return(
+// <div className='App'>
+// <User4 data={getData}/>
+// </div>
+//   )
+// }
+
+// export default App;
+
+// Q.  if our compoent is rendered on the window , we hide it and then show it ? will our life cycle start from first  or it will continue from where it left?
+// ans is it will start from first
+
+// video: 22 : Constructor Life Cycle Method
+// => Why a contructor?
+// => Why this is importatnt?
+// => What we can do in this life cycle method?
+// => interview Question
+
+// import './App.css';
+// import React  from 'react';
+
+// class App extends React.Component{
+//   constructor(){
+//     super()
+//     // console.warn("constructor")
+//     this.state = {
+//       data:"deshmukh"
+//     }
+
+//   }
+//   render(){
+//     // console.warn("render")
+//     return(
+//       <div className='App'>
+//         <h1> Hi, This is my name : {this.state.data}</h1>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+///  can  we use props inside the constructor and note props come from parent component?
+// kya hamare props constructor jab tak bane hui hote hai tab tak a chuke hote hai ya nahi?
+
+// => yes inside constructor we can receive the props and even outside the construcotr.
+
+// video : 23 : Render life Cycle method
+// -> use of render method
+// -> make class component
+// -> use state and props with render
+// -> interview question
+
+// paraent component.
+// import "./App.css";
+// import User5 from "./User5";
+// import { useState } from "react";
+
+// function App() {
+//   const [name, setName] = useState("deshmukh");
+//   // const [email1, setEmail] = useState("deshmukhsoemsh7777@gmail.com");
+//   return (
+//     <div className="App">
+//       <h1>Render Method in React</h1>
+
+//       <User5   />
+//       {/* <button onClick={() => setName("somesh")}>Update Name</button> */}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// Q. can there be more than one render method , or can we write a new render method with in render method?
+
+// video: 24 : ComponentDidMount life cycle method in React js
+// => Use of componentDidMount Method
+// => make class component
+// => No effect of state and props.
+// => interview question
+
+// Q. what is use of componentDidMount ?
+// -> best example is , calling an api , setting up event listeners.
+
+// Q.  Which one is called first render() or componentDidMount()?
+//-> first render() method will be called and when our component is mounted (ie. inserted into the DOM) , componentDidMount will be called.
+
+// Q. What is difference between compoentDidMount() and componentDidUpdate()?
+
+//=> componentDidUpdate() is  invoked immediately after an update to component occures(props or state change).
+
+// code:
+
+// import "./App.css";
+// import React, { Component } from "react";
+
+// class App extends Component {
+//   constructor() {
+//     super();
+
+//     this.state={
+//       name:"deshmukh somesh shivkumar"
+//     }
+//   }
+
+//   componentDidMount(){
+//     console.warn ("componentDidMount")
+
+//   }
+
+//   render() {
+//     console.warn ("render")
+
+//     return (
+//       <div className="App">
+//         <h1>ComponetDidMount : {this.state.name}</h1>
+//         <button onClick={()=>this.setState({name:"rajpatil"})}>Update name </button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// Q. Can we update state in render() or componentDidMount() ?
+// =>no we can't , every time rnder get called so it will take the state in infinite loop. as an solutoin use the componentDidMount
+// we can use shouldComponentUpdate method to stop componnetDidupdate.
+
+// video: 25: componentDidUpdate life cycle method in ReactJs
+// -> Use of componentDidUpdate Method
+// -> Make Class component.
+// -> Use with state and props.
+// -> Previous props and state.
+//  => interview question
+
+// import "./App.css";
+// import React from "react";
+
+// class App extends React.Component {
+//   constructor() {
+    
+//     super();
+//     console.warn("constructor");
+//     this.state = {
+//       count: 0,
+//     };
+//   }
+
+//   componentDidUpdate(prevProps,prevState,snapshot) {
+   
+//     console.log();
+//     console.warn("componentDidUpdate",prevState.count,this.state.count);
+//     // this.setState({email:"rajpatil@gmail.com"})
+//     if(this.state.count<10){
+//       this.setState({count:this.state.count+1})
+
+//     }
+//   }
+
+//   render() {
+    
+//     console.warn("render");
+//     return (
+//       <div className="App">
+//         <h1>Component Did Update : {this.state.count}</h1>
+//         <button onClick={() => this.setState({ count:  1 })}>
+//           Update state
+//         </button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// Q. Can we call api in componentDidUpdate()?
+
+// video: 26: shouldComponentUpdate life cycle method
+// -> when shouldComponentUpdate called and Use.
+// -> it can stop rendering
+// -> Use with state and props
+// -> interview question.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////jumped>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// video: 31: Style in ReactJs
+// How many ways we have for style in React.js
+// Use the normal stylesheet
+// Style with the variable or inline style
+//Css with module
+// interview question.
+
+// there are 3 types of style they are
+// 1) one css file ex: App.css
+// 2) inline style: {} first for jsx and {} for object. in here camel case is used for property name ex:
+// background-color is written as backgroundColor:
+//3) css with module
+
+// import "./App.css";
+// import "./style.css";
+// import style from "./custom.module.css";
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1 className="primary">Style type 1 in React js</h1>
+//       <h1 style={{ color: "red", backgroundColor: "black" }}>
+//         {" "}
+//         Style type 2 in React js
+//       </h1>
+//       <h1 className={style.success}>3 rd way of styling usign module file</h1>
+//     </div>
+//   );
+// }
+// export default App;
+
+// Q. can we use modular css and normal css combinely or not?
+
+// video : 32 : Install Bootstrap
+// -> What is Bootstrap
+// -> Install Bootstrap
+// -> Use and register bootstrap library
+// -> Example with bootstrap Component
+// -> interview question
+
+// you can visit : react-bootstrap website and click on getstrated.
+// command to install bootstrap : npm i react-bootstrap bootstrap
+
+// don't use <link/> : it is cdn link, instaed make use of CSS
+// import 'bootstrap/dist/css/bootstrap.min.css'; put this one in index.js
+
+// import "./App.css";
+// import {Button} from 'react-bootstrap';
+// function App() {
+//   return <div className="App">
+//     <h1> install Bootstrap</h1>
+//     <Button onClick={()=>alert("hi")}> Click on this </Button>
+//     {/* you can go in components-> Buttons and make use of them in various ways */}
+//   </div>;
+// }
+
+// export default App;
+
+// video: 33: Array Listing with Map function:(Important) interview oriented.
+// Handle Array with list
+// -> Make an array
+// -> Why use map function,  not for loop
+// -> make list with an array
+// -> Make list with an array of objects
+// -> interview question
+/*
+import "./App.css";
+import React from "react";
+function App() {
+//   const students = ["Anamika", "Sam", "Peter"];
+  // map Looping
+//   students.map((item) => {
+//     console.warn("My name is", item);
+//   });
+
+//   for (let i = 0; i < students.length; i++) {
+//     console.log("using for loop", students[i]);
+//   }
+
+  // the reson why we use map but not for loop is map
+  //supports in return statement but for loop doesn't support
+  //in return statement.
+
+  const students = [
+    {name:"deshmukh",email:"deshmukhsomesh777@gmail.com", contact:"000"},
+    {name:"raj", email:"rajpatil@gmail.com", contact:"111"} 
+  ]
   return (
     <div className="App">
-      <h1>Pass function as Props</h1>
-      <User4 data={getData}/>
-      <User4 data={getData}/>
-      <User4 data={getData}/>
-      <User4 data={getData}/>
-      <div style={{float:'right'}}>
-      <Members data= {getData}/>
-      </div>
+      <h1>Handle Array with list</h1>
+      <table border="1">
+        <tbody  >
+        <tr>
+            <td>S.no</td>
+            <td>Name</td> 
+            <td>Email</td>
+            <td>Contact</td>
+
+             </tr>
+      {students.map((data,i) => (
+        // <div>
+        //     <p>{data.contact},{data.email},{data.name}</p>
+        // <h1>Name is:{data.name}</h1>,
+        // <h2>Email is : {data.email}</h2>
+        // </div>
+        <tr key={i}>
+            <td>{i+1}</td>
+            <td>{data.name}</td> 
+            <td>{data.email}</td>
+            <td>{data.contact}</td>
+
+             </tr>
+      ))}
+</tbody>
+</table>
+
       
     </div>
   );
 }
 
 export default App;
+*/
+// 34 : List with Bootstrap Table
+// List with Bootstrap and Unique Key
+// => Make list from array
+// => What is Unique key in loop?
+// => install Bootstrap
+// => use Bootstrap table with loop
+// => interview Questionion
 
-// Q. can we carete super componet i.e. compoent within componet.
+// import './App.css';
+// import React from 'react';
+// import {Table} from 'react-bootstrap'
+// function App(){
+//     const users = [
+//         {name:'Somesh',email:'somesh@gmail.com',contact:'111'},
+//         {name:'raj',email:'somesh@gmail.com',contact:'222'},
+//         {name:'Patil',email:'somesh@gmail.com',contact:'111'},
+//         {name:'rohit',email:'somesh@gmail.com',contact:'110'},
+//     ]
+
+//     return(
+//         <div className='App'>
+//             <h1> List With Bootstrap Table</h1>
+//             <Table striped bordered hover variant='dark'>
+//                 <tbody>
+//             <tr>
+//                 <td>S.no</td>
+//                     <td>Name</td>
+//                     <td>Email</td>
+//                     <td>Contact</td>
+//                  </tr>
+//             {
+//                 users.map((item,i)=>
+//                 item.contact ==='111'?
+//                  <tr key={i}>
+//                     <td>{i+1}</td>
+//                     <td>{item.name}</td>
+//                     <td>{item.email}</td>
+//                     <td>{item.contact}</td>
+//                  </tr>:null
+//                 )
+//             }
+//             </tbody>
+//             </Table>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+// q. How can we show s .no?
+
+// React Router v6 tutorial : 1# getting started | installation
+// -> Install Router router verson
+// => Setup Wrapper for React Router
+// -> Make some component
+// -> Open compoents as Page
+
+// import './App.css'
+// import {BrowserRouter , Routes,Route} from 'react-router-dom'
+// import Home from './component/Home';
+// import About from './component/About'
+// function App(){
+//     return(
+// <div className='App'>
+//     <BrowserRouter>
+//     <Routes>
+//     {/* <Route path="/home" element={<h1>Home Page</h1>}/> */}
+//     <Route path="/" element={<Home/>}/>
+//     <Route path="/about" element={<About/>} />
+//     </Routes>
+
+//     </BrowserRouter>
+
+// </div>
+
+//     )
+// }
+
+// export default App;
+
+// video: 2: Links , NavBar, anchor Tag
+
+// -> Make Simple Link for Router
+// -> Make common component for links
+// -> why we can't use anchor tag for links
+
+// import './App.css';
+// import {BrowserRouter, Routes,Route, Link} from 'react-router-dom';
+// import Home from './component/Home'
+// import About from './component/About'
+// import NavBar  from './component/NavBar';
+// function App(){
+//     return(
+//         <div className='App'>
+//         <BrowserRouter>
+//         <NavBar/>
+//         <Routes>
+//             <Route path='/' element={<Home/>} />
+//             <Route path='/about' element={<About/>}/>
+//         </Routes>
+//         </BrowserRouter>
+//         </div>
+
+//     )
+// }
+
+// export default App;
+
+// video: 3 : 404 Page not  found and redirect
+
+// import './App.css';
+// import { BrowserRouter, Routes,Route,Link ,Navigate} from 'react-router-dom';
+// import Home from './component/Home'
+// import About from './component/About'
+// import Page404 from './component/Page404'
+// import NavBar from './component/NavBar';
+
+// function App(){
+//     return(
+//         <div>
+// <div className='App'>
+//     <BrowserRouter>
+//     <NavBar/>
+//     <NavBar/>
+//     <Routes>
+//         <Route path="/" element={<Home/>}></Route>
+//         <Route path="/about" element={<About/>}></Route>
+//         {/* <Route path="*" element={<Page404/>}></Route> */}
+//         <Route path="/*" element={<Navigate to="/" />}>Co</Route>
+//     </Routes>
+//     </BrowserRouter>
+
+// </div>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+// video : 4 : dynamic Routing with params
