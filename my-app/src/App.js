@@ -765,7 +765,7 @@
 
 // class App extends React.Component {
 //   constructor() {
-    
+
 //     super();
 //     console.warn("constructor");
 //     this.state = {
@@ -774,7 +774,7 @@
 //   }
 
 //   componentDidUpdate(prevProps,prevState,snapshot) {
-   
+
 //     console.log();
 //     console.warn("componentDidUpdate",prevState.count,this.state.count);
 //     // this.setState({email:"rajpatil@gmail.com"})
@@ -785,7 +785,7 @@
 //   }
 
 //   render() {
-    
+
 //     console.warn("render");
 //     return (
 //       <div className="App">
@@ -801,6 +801,7 @@
 // export default App;
 
 // Q. Can we call api in componentDidUpdate()?
+// => yes we can , if you want to call inside a condition. otherwise  you should use componentDidMount();
 
 // video: 26: shouldComponentUpdate life cycle method
 // -> when shouldComponentUpdate called and Use.
@@ -808,39 +809,39 @@
 // -> Use with state and props
 // -> interview question.
 
+import "./App.css";
+import React from "react";
 
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0,
+    };
+  }
 
+  shouldComponentUpdate() {
+    console.warn("shouldComponentUpdate", this.state.count);
+    if (this.state.count > 5 && this.state.count < 10) {
+      return true;
+    }
+    return false;
+  }
 
+  render() {
+    return (
+      <div className="App">
+        <h1>shouldCompoentUpdate {this.state.count}</h1>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          update count
+        </button>
+      </div>
+    );
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default App;
+/// Q. which method is called first componentDidUpdate or shouldCompoentUpdate?
 
 /////////////////////////jumped>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
