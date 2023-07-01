@@ -844,14 +844,11 @@
 /// Q. which method is called first componentDidUpdate or shouldCompoentUpdate?
 // => shouldComponetUpdate will be called first and if this method returns  true then only componentDidUpdate will be called.
 
-
 // video: 27: componentWillUnmount life cycle method:
 // -> when componentWillUnmount called.
 // -> Example of component will unmount .
 // -> use of component will unmount
 // -> interview question
-
-
 
 // import './App.css';
 // import React from 'react';
@@ -865,13 +862,11 @@
 //     }
 //   }
 
- 
-
 //   render(){
 //     return(
 //       <div className='App'>
 //         {/* <h1>componentWillUnmount()</h1> */}
-//      {this.state.show?<Student2/>:<h1>child compnent removed</h1>}  
+//      {this.state.show?<Student2/>:<h1>child compnent removed</h1>}
 //         <button onClick={()=>this.setState({show:!this.state.show})} >Toggole Child component</button>
 //       </div>
 //     )
@@ -880,34 +875,36 @@
 
 // export default App;
 
+// practice: componentWillUnmount life cycle method:
+
 
 
 
 // Q.when is componentWillUnmount called , is it called just after the dom element disappers or before the dom element disappers?
 // => it is called before the element is removed from dom
-
+ 
 // video : 28: Hooks in ReactJs
 // -> What are hooks in ReactJs
-// -> How to use them 
+// -> How to use them
 // -> Example of React Hooks with useState
 // -> interview question.
 
 /// note : with Hook, we can use class component features in functional components such as state, life cycle, pure component, etc.
 
-// import './App.css';
-// import React,{useState} from 'react'
-// function App(){
+import './App.css';
+import React,{useState} from 'react'
+function App(){
 
-//   const [data,setData] = useState("somesh");
-//   return(
-//     <div className='App'>
-//       <h1> Hello friends this is :{data}</h1>
-// <button onClick={()=> setData("deshmukh")}>Click here</button>
-//     </div>
-//   )
-// }
+  const [data,setData] = useState("somesh");
+  return(
+    <div className='App'>
+      <h1> Hello friends this is :{data}</h1>
+<button onClick={()=> setData("deshmukh")}>Click here</button>
+    </div>
+  )
+}
 
-// export default App;
+export default App;
 
 // Q. Can we use these hooks in class components?
 // => we can't do this
@@ -939,11 +936,9 @@
 
 // export default App;
 
-
-// Q. can we define a function inside the useEffect? 
-// or 
+// Q. can we define a function inside the useEffect?
+// or
 // Q. can we put useEffect inside a function?
-
 
 // video: 30: useEffect with condition || part 2|| like component did mount
 // -> What is useEffect
@@ -975,7 +970,6 @@
 
 // export default App;
 
-
 // with props
 
 // import './App.css';
@@ -1001,82 +995,6 @@
 // }
 
 // export default App;
-
-
-// practice: should component update:
-import './App.css';
-import React from 'react';
-import Card from './Card';
-
-class App extends React.Component{
-
-  constructor(){
-    super();
-    this.state= {
-    bgColor:'red',
-    count:0,
-    }
-  }
-
-
-  getRandomColor = ()=>{
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for(let i=0;i<6;i++){
-      color += letters[Math.floor(Math.random() *16)];
-    }
-    return color;
-  }
-
-
-
-  handleClick = ()=>{
-    this.setState((prevState)=>({
-      bgColor:this.getRandomColor(),
-      count:prevState.count+1
-    }))
-  }
-
-  componentDidMount(){
-    document.body.style.backgroundColor = this.state.bgColor;
-    console.log('called')
-  }
-
-  componentDidUpdate(){
-    document.body.style.backgroundColor = this.state.bgColor;
-    console.log('called1')
-  }
-
-  render(){
-    return(
-      // <div className='App' style={{backgroundColor:this.state.bgColor}}>
-        <div className='App'>
-        <Card/>
-      </div>
-    )
-  }
-}
-
-export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /////////////////////////jumped>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

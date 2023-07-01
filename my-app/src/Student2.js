@@ -1,22 +1,20 @@
-import "./App.css";
-import React from "react";
+import React from 'react';
 
-class Student2 extends React.Component {
-  constructor() {
-    super();
+class Student2 extends React.Component{
+
+  constructor(){
+    super()
   }
-
 
   componentWillUnmount(){
-    alert("componentWillUnmount Called")
+   alert('Component Removed successfully')
   }
-
-  render() {
-    return (
-      <div className="App">
+  render(){
+    return(
+      <div>
         <h1>Student Component</h1>
       </div>
-    );
+    )
   }
 }
 
